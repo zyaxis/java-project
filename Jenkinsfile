@@ -15,7 +15,7 @@ node('linux')
     
     stage('Deploy'){  
          withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS-Credentials-For-Jenkins', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-            sh "aws s3 mb s3://seis66502-dan-assignment10"
+            sh "aws s3 cp rectangle-*.jar s3://seis66502-dan-assignment10"
         }
     }
     
