@@ -14,6 +14,6 @@ node('linux')
     }
     
     stage('Deploy'){
-        sh "aws s3 cp  rectangle-*.jar http://s3.amazonaws.com/seis66502-dan/
+        sh "aws s3 cp  rectangle-*.jar http://s3.amazonaws.com/seis66502-dan/"
     }
 }
