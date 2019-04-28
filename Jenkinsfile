@@ -14,7 +14,7 @@ node('linux')
     }
     
     stage('Deploy'){
-        sh "aws s3 mb s3//seis66502-dan-assignment10"
+        sh "aws s3 mb s3://seis66502-dan-assignment10"
     }
     
     stage('Report'){
