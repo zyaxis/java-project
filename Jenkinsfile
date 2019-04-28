@@ -13,7 +13,7 @@ node('linux')
         sh "ant -f build.xml -v"
     }
     
-    stage('Deploy'){
-        sh "aws s3 mb s3://seis66502-dan-assignment10"
+    stage('Report'){
+        sh "aws cloudformation describestack-resources --region us-east-1 --stack-name jenkins"
     }
 }
