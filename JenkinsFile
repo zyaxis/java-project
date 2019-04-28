@@ -1,6 +1,7 @@
 properties([pipelineTriggers([githubPush()])]) 
 
-node('linux'){
+node('linux')
+{
     stage('Build'){
         git 'https://github.com/zyaxis/java-project.git'
         sh "ant"
