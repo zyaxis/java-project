@@ -2,16 +2,14 @@ properties([pipelineTriggers([githubPush()])])
 
 node('linux')
 {
+    stage('Unit Tests'){
+        sh "ant -buildfile text.xml"
+        sh "ant -f test.xml -v"
+        junit 'reports/result.xml'
+    }
+    
     stage('Build'){
-        git 'https://github.com/zyaxis/java-project.git'
         sh "ant"
-    }
-    
-    stage('Test'){
-        sh "ant -buildfile test.xml"
-    }
-    
-    stage('Reports'){
-        junit 'reports/*.xml'
+        sh "ant -f build.xml -v"
     }
 }
